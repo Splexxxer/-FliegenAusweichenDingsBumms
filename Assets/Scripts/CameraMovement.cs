@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {   
-    public float speed = 3;
+    public float speed = 5;
     bool shouldStart = false;
 
     
@@ -16,11 +16,10 @@ public class CameraMovement : MonoBehaviour
     }
     
     void Update()
-    {
+    {       
         if (shouldStart == true)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-speed,0);
-           
+            GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
         }
     }
     

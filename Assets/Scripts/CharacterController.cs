@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    public float speed = 5f;
-    
-    void Update()
-    {
-        float vHorizontal = Input.GetAxisRaw("HorizontalPlayer1");
-        float vVertical = Input.GetAxisRaw("VerticalPlayer1");
+	public float speed = 10.0f;
 
-        GetComponent<Rigidbody2D>().velocity = new Vector2(vHorizontal, vVertical) * speed;     
-    }
+	void Update()
+	{
+		float moveHorizontal= Input.GetAxis("HorizontalPlayer1");
+		float moveVertical = Input.GetAxis("VerticalPlayer1");
+
+		Vector2 movment = new Vector2(moveHorizontal, moveVertical);
+		
+		GetComponent<Rigidbody2D>().velocity = (movment * speed);		       
+	}
 }
