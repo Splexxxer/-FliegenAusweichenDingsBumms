@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PerlinNoiseForest : MonoBehaviour
+public class PerlinNoiseForestOld : MonoBehaviour
 {
     public int width = 265;
     public int height = 265;
@@ -8,7 +8,7 @@ public class PerlinNoiseForest : MonoBehaviour
     public float scale = 20f;
 
     public float offsetX = 100f;
-    public float offsety = 100f;
+    public float offsetY = 100f;
 
     void Start()
     {
@@ -42,8 +42,8 @@ public class PerlinNoiseForest : MonoBehaviour
 
     Color CalculateColor(int x, int y)
     {
-        float xCoord = (float)x / width * scale;
-        float yCoord = (float)y / width * scale;
+        float xCoord = (float)x / width * scale + offsetX;
+        float yCoord = (float)y / width * scale + offsetY;
 
         float sample = Mathf.PerlinNoise(xCoord, yCoord);
         return new Color(sample, sample, sample);
