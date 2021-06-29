@@ -4,27 +4,44 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    [SerializeField] private Transform LevelPart_1;
 
-    private void Awake()
+    public GameObject position1;
+    public GameObject position2;
+    public GameObject position3;
+
+    public GameObject levelPart_1;
+    public GameObject levelPart_2;
+    public GameObject levelPart_3;
+
+
+    void Start()
     {
-        Transform LastLevelPartTransform;
-        LastLevelPartTransform = SpawnLevelPart(LastLevelPartTransform.Find("EndPosition").position);
-        LastLevelPartTransform = SpawnLevelPart(LastLevelPartTransform.Find("EndPosition").position);
-        LastLevelPartTransform = SpawnLevelPart(LastLevelPartTransform.Find("EndPosition").position);
-        LastLevelPartTransform = SpawnLevelPart(LastLevelPartTransform.Find("EndPosition").position);
-        LastLevelPartTransform = SpawnLevelPart(LastLevelPartTransform.Find("EndPosition").position);
-        LastLevelPartTransform = SpawnLevelPart(LastLevelPartTransform.Find("EndPosition").position);
-        LastLevelPartTransform = SpawnLevelPart(LastLevelPartTransform.Find("EndPosition").position);
-        LastLevelPartTransform = SpawnLevelPart(LastLevelPartTransform.Find("EndPosition").position);
-        LastLevelPartTransform = SpawnLevelPart(LastLevelPartTransform.Find("EndPosition").position);
-        LastLevelPartTransform = SpawnLevelPart(LastLevelPartTransform.Find("EndPosition").position);
+        List<GameObject> positions = new List<GameObject>();
+        positions.Add(position1);
+        positions.Add(position2);
+        positions.Add(position3);
+
+        List<GameObject> levelParts = new List<GameObject>();
+        levelParts.Add(levelPart_1);
+        levelParts.Add(levelPart_2);
+        levelParts.Add(levelPart_3);
+        
+        SpawnLevelPart(positions, levelParts);       
     }
 
-    private Transform SpawnLevelPart(Vector2 Spawnposition)
+    private int SelectLevelPart()
     {
-        Transform LevelPartTransform = Instantiate(LevelPart_1, Spawnposition, Quaternion.identity);
-        return LevelPartTransform;
+        int randomLevelPart = Random.Range(1,3);
+        return randomLevelPart;
     }
+
+    void SpawnLevelPart(List<GameObject> positions, List<GameObject> levelParts)
+    {
+        foreach(GameObject positionX in positions)
+        {
+            Instantiate(levelParts[SelectLevelPart()], positionX.transform.position, new Quaternion(0,0,0,0));
+        }
+    }
+
 
 }
