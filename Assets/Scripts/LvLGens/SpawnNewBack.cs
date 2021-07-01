@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnNewBack : MonoBehaviour
 {
     public bool isTriggered = false;
+    public bool caveSpawnedBefore = false;
 
     public int chanceForCave;
 
@@ -21,11 +22,16 @@ public class SpawnNewBack : MonoBehaviour
             if(chanceForCave <= random) 
             { 
                 Instantiate(objectToSpawn, pointToSpawn.transform.position, new Quaternion(0, 0, 0, 0));
-                isTriggered = true; 
+                caveSpawnedBefore = false;
             }
-            else if (chanceForCave > random)
+            else if (chanceForCave > random && caveSpawnedBefore == false)
             {
                 Instantiate(objectToSpawn2, pointToSpawn.transform.position, new Quaternion(0, 0, 0, 0));
+                caveSpawnedBefore = true;
+            }
+            else
+            {
+                Instantiate(objectToSpawn, pointToSpawn.transform.position, new Quaternion(0, 0, 0, 0));
             }
             isTriggered = true;
         }

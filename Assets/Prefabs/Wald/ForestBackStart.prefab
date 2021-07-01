@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTriggered: 0
+  caveSpawnedBefore: 0
   chanceForCave: 20
   objectToSpawn: {fileID: 1759554036209870478, guid: f776d94e55bbea84b9b2e6430ddc508c,
     type: 3}
