@@ -5,9 +5,14 @@ using UnityEngine;
 public class TrailScript : MonoBehaviour
 {
 	public Animator animator;
-    void Update()
+
+	public CharacterController player;
+
+
+	void Update()
     {
-		if (Input.GetAxis("HorizontalPlayer1") > 0)
+		
+		if (player.movingForward)
 		{
 			animator.SetBool("AnimationStateForward", true);
 		}

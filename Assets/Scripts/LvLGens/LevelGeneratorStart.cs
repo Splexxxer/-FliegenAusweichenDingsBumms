@@ -4,36 +4,17 @@ using UnityEngine;
 
 public class LevelGeneratorStart : MonoBehaviour
 {
-    public GameObject position1;
-    public GameObject position2;
-    public GameObject position3;
-    public GameObject position4;
-
-    public GameObject levelPart_1;
-    public GameObject levelPart_2;
-    public GameObject levelPart_3;
-    
-
+    public List<GameObject> positions = new List<GameObject>();
+    public List<GameObject> levelParts = new List<GameObject>();
 
     void Start()
-    {
-        List<GameObject> positions = new List<GameObject>();
-        positions.Add(position1);
-        positions.Add(position2);
-        positions.Add(position3);
-        positions.Add(position4);
-
-        List<GameObject> levelParts = new List<GameObject>();
-        levelParts.Add(levelPart_1);
-        levelParts.Add(levelPart_2);
-        levelParts.Add(levelPart_3);
-        
+    {       
         SpawnLevelPart(positions, levelParts);       
     }
 
     private int SelectLevelPart()
     {
-        int randomLevelPart = Random.Range(0,3);
+        int randomLevelPart = Random.Range(0,levelParts.Count + 1);
         return randomLevelPart;
     }
 
