@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrailScript : MonoBehaviour
+public class TrailScriptPlayer2 : MonoBehaviour
 {
 	public Animator animator;
-    void Update()
-    {
-		if (Input.GetAxis("HorizontalPlayer1") > 0)
+	void Update()
+	{
+		if (Input.GetAxis("HorizontalPlayer2") > 0)
 		{
 			animator.SetBool("AnimationStateForward", true);
 		}

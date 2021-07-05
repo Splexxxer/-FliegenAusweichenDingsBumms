@@ -47,6 +47,3 @@ TagManager:
   - name: PlayersAndObjects
     uniqueID: 3440984427
     locked: 0
-  - name: UI
-    uniqueID: 4177430807
-    locked: 0
