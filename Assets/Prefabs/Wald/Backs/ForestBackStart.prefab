@@ -161,7 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTriggered: 0
-  caveSpawnedBefore: 0
   chanceForCave: 20
   objectToSpawn: {fileID: 1759554036209870478, guid: f776d94e55bbea84b9b2e6430ddc508c,
     type: 3}
@@ -400,13 +399,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cbcc657ce3e6c46b140abf208e9971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position1: {fileID: 970087140}
-  position2: {fileID: 634473393}
-  position3: {fileID: 1104968508}
-  position4: {fileID: 3255966030062909023}
-  levelPart_1: {fileID: 9023262638830279896, guid: 4e65f86670d25fa43888ff9ad81a7f5c,
-    type: 3}
-  levelPart_2: {fileID: 5569447463018467507, guid: fb6b2bc08ae0c9b42b906a14cde6cd26,
-    type: 3}
-  levelPart_3: {fileID: 5444635414958434176, guid: ab260c3a6951b124f914bba03918d839,
-    type: 3}
+  positions:
+  - {fileID: 970087140}
+  - {fileID: 634473393}
+  - {fileID: 1104968508}
+  - {fileID: 3255966030062909023}
+  levelParts:
+  - {fileID: 9023262638830279896, guid: 4e65f86670d25fa43888ff9ad81a7f5c, type: 3}
+  - {fileID: 5569447463018467507, guid: fb6b2bc08ae0c9b42b906a14cde6cd26, type: 3}
+  - {fileID: 5444635414958434176, guid: ab260c3a6951b124f914bba03918d839, type: 3}
