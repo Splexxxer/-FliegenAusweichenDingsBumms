@@ -41,8 +41,6 @@ public class PlayerConfigurationManager : MonoBehaviour
     public void ReadyPlayer(int index)
     {
         playerConfigs[index].IsReady = true;
-        Debug.Log("Player " + index + " IsReady");
-        Debug.Log(playerConfigs.Count);
         if (playerConfigs.All(p => p.IsReady == true))
         {
             SceneManager.LoadScene(scenToLaod);
