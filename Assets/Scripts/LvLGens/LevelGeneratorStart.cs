@@ -14,7 +14,7 @@ public class LevelGeneratorStart : MonoBehaviour
 
     private int SelectLevelPart()
     {
-        int randomLevelPart = Random.Range(0,levelParts.Count + 1);
+        int randomLevelPart = Random.Range(0,levelParts.Count);
         return randomLevelPart;
     }
 
@@ -22,7 +22,7 @@ public class LevelGeneratorStart : MonoBehaviour
     {
         foreach(GameObject positionX in positions)
         {
-            Instantiate(levelParts[SelectLevelPart()], positionX.transform.position, new Quaternion(0,0,0,0));
+            Instantiate(levelParts[SelectLevelPart()], positionX.transform.position, new Quaternion(0,0,0,0));         
         }
     }
 

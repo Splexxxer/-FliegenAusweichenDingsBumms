@@ -10,8 +10,9 @@ public class PlayerConfiguration
     public bool IsReady { get; set; }
     public Sprite PlayerSprite { get; set; }
     public int animationState { get; set; }
+    public bool itemHeld { get; set; }
 
-    public PlayerConfiguration(PlayerInput pi)
+public PlayerConfiguration(PlayerInput pi)
     {
         PlayerIndex = pi.playerIndex;
         Input = pi;

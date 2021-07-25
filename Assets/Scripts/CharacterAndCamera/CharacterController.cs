@@ -11,6 +11,7 @@ public class CharacterController : MonoBehaviour
 	public Animator animator;
 
 	Vector2 move = Vector2.zero;
+	public bool selected = false;
 
 	public bool movingForward = false;
 
@@ -30,7 +31,6 @@ public class CharacterController : MonoBehaviour
 		playerConfig = pc;
 		spriteRenderer.sprite = pc.PlayerSprite;
 		trailAnimator.SetInteger("index", pc.animationState);
-		Debug.Log(pc.animationState);
 
         playerConfig.Input.onActionTriggered += Input_onActionTriggered;		
 	}
@@ -40,7 +40,11 @@ public class CharacterController : MonoBehaviour
 		if(obj.action.name == controls.Player.Movement.name)
         {
 			OnMove(obj);
-        }
+		}
+		if(obj.action.name == controls.Player.Select.name)
+        {
+			OnSelect(obj);
+		}
 
 	}
 
@@ -49,13 +53,25 @@ public class CharacterController : MonoBehaviour
 		move = context.action.ReadValue<Vector2>();
     }
 
+	public void OnSelect(InputAction.CallbackContext context)
+    {
+		selected = context.action.triggered;
+	}
+
+
+
     void FixedUpdate()
 	{
 		Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime * speed;
 		
 		transform.Translate(m, Space.World);
 
-		
+        if (selected)
+        {
+			gameObject.GetComponentInChildren<ItemManager>().ShootItem();
+			selected = false;
+        }
+
 		if(m.x > 0)
         {
 			animator.SetBool("AnimationStateForward", true);

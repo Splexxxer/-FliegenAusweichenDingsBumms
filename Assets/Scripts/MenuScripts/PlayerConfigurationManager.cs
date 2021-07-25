@@ -36,6 +36,7 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         playerConfigs[index].PlayerSprite = sprite;
         playerConfigs[index].animationState = animtionState;
+        playerConfigs[index].itemHeld = false;
     }
 
     public void ReadyPlayer(int index)
